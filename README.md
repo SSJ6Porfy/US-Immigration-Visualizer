@@ -15,7 +15,7 @@ The project must be completed in 4 days.
 
 ## MVP
 
-[!Wireframes](https://github.com/SSJ6Porfy/US-Immigration-Visualizer/blob/master/docs/ImmigrationVisualizer1.png)
+![Wireframes](https://github.com/SSJ6Porfy/US-Immigration-Visualizer/blob/master/docs/ImmigrationVisualizer1.png)
 
 Coordinates between countries will render a series of dots representing
 a rate of 25,000 immigrants per dot flow on a path towards the US.  
@@ -26,4 +26,4 @@ have a noticeably higher rate.
 Users will have an interactive experience by using the mouse to scroll
 which decade the user wants to see with rate changing depending on the data.
 
-[!Wireframes](https://github.com/SSJ6Porfy/US-Immigration-Visualizer/blob/master/docs/USImmigrationV2.png)
+![Wireframes](https://github.com/SSJ6Porfy/US-Immigration-Visualizer/blob/master/docs/USImmigrationV2.png)
