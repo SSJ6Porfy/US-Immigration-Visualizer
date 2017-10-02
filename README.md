@@ -29,3 +29,29 @@ Users will have an interactive experience by using the mouse to scroll
 which decade the user wants to see with rate changing depending on the data.
 
 ![Wireframes](https://github.com/SSJ6Porfy/US-Immigration-Visualizer/blob/master/docs/USImmigrationV2.png)
+
+## Timeline
+
+### Weekend
+
+* Mine US census for immigration information by country
+* Learn D3 library and implementation
+* Learn Mapbox Api
+
+### Day 1
+
+* Build Out map with Mapbox and style.
+* Render plots for countries based on Coordinates.
+
+### Day 2
+
+* Build logic for rendering dot flows on path based on a rate of 25,000
+immigrants per dot.
+
+### Day 3
+
+* Load data on map
+
+### Day 4
+
+* Add scrolling feature for change in decade.  
