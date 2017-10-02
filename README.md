@@ -9,9 +9,11 @@ sourced from the US census.
 The project must be completed in 4 days.
 
 ### Technologies
-* d3.js
-* three.js
-* mapbox API
+* d3.js - A javascript library for manipulating document with data.
+* mapbox API - A location data platform designed specifically to build rich
+maps.
+* Vanilla javascript
+* Webpack for bundling the scripts
 
 ## MVP
 
