@@ -1,0 +1,21 @@
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+svg {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  z-index: 1000
+}
+
+h1 {
+  color: blue;
+}
