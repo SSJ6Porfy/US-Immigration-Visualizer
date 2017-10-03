@@ -1,9 +1,32 @@
 import React from "react";
 import * as d3 from "d3";
+import $ from "jquery";
 
 class Immigration extends React.Component {
   constructor(props) {
     super(props);
+    this.countrySpotGenerator = this.countrySpotGenerator.bind(this);
+    this.countryCoordinates = this.countryCoordinates.bind(this);
+  }
+
+  countrySpotGenerator(arr) {
+    arr.forEach((country) => {
+      let [x, y] = country;
+        d3.select("svg")
+          .append("circle")
+          .attr("r", 2)
+          .attr("cx", x)
+          .attr("cy", y)
+          .attr("fill", "red");
+    });
+  }
+
+  countryCoordinates() {
+    const coordinates = [
+      [0, 220],[30, 190],[-15, 265],[175, 110],[60,273],[47,273],[240,174]
+    ];
+
+    return coordinates;
   }
 
   render() {
@@ -13,25 +36,40 @@ class Immigration extends React.Component {
       style: 'mapbox://styles/ssj6porfy/cj886di5648oh2sod4z2ncb9s',
       "center": [
         10,
-        30
+        27
       ],
-      "zoom": 1.1,
-      "bound": [ -180.0, -90.0, 180.0, 90.0]
-
+      "zoom": 1.1
     });
 
     let svg = d3.select("#map")
                   .append("svg")
-                  .attr("viewBox", "0 0 200 200");
+                  .attr("viewBox", "0 0 500 500");
 
-    d3.select("svg")
-      .append("circle")
-      .attr("height", "100px")
-      .attr("width", "100px")
-      .attr("r", "1")
-      .attr("cx", 23)
-      .attr("cy", 26)
-      .attr("fill", "blue");
+    this.countrySpotGenerator(this.countryCoordinates());
+
+  // PATHS
+
+    d3.select("svg") // Mexico to US
+      .append('path')
+      .attr('class', 'flowline')
+      .attr('d', 'M-15 265 L0 220');
+
+    d3.select("svg") // Haiti to US
+      .append('path')
+      .attr('class', 'flowline')
+      .attr('d', 'M47 273 L0 220');
+
+    d3.select("svg") //DR to US
+      .append('path')
+      .attr('class', 'flowline')
+      .attr('d', 'M60 273 L0 220');
+
+    d3.select("svg")// Canada to US
+      .append('path')
+      .attr('class', 'flowline')
+      .attr('d', 'M30 190 L0 220');
+
+
     return (
       <div>
       </div>

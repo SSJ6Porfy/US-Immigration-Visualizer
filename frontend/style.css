@@ -3,16 +3,16 @@ html, body {
   margin: 0;
   height: 100%;
   width: 100%;
+  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: black;
 }
 
 #map {
   height: 625px;
   width: 1100px;
-  min-height:625px;
+  min-height: 625px;
   min-width: 1100px;
   border: 1px solid lightgray;
 }
@@ -20,13 +20,48 @@ html, body {
 circle {
   position: absolute;
   z-index: 1000;
+  stroke-width: 1px;
+  stroke-width: 1px;
+  stroke: white;
 }
 
 svg {
+  height: 625px;
+  width: 1100px;
   position: absolute;
   z-index: 1000;
 }
 
 .mapboxgl-control-container {
   display: none;
+}
+
+.flowline {
+  fill: none;
+  stroke: hsl(60, 100%, 50%);
+  opacity: 1;
+  stroke-width: 2;
+  stroke-dasharray: 1, 4;
+  animation: flow 1s linear infinite;
+  -webkit-animation: flow 1s linear infinite;
+}
+
+@keyframes flow {
+  from {
+    stroke-dashoffset: 14;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes flow {
+  from {
+    stroke-dashoffset: 14;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
 }
