@@ -10392,11 +10392,16 @@ var _root = __webpack_require__(217);
 
 var _root2 = _interopRequireDefault(_root);
 
+var _data_actions = __webpack_require__(525);
+
+var _data_actions2 = _interopRequireDefault(_data_actions);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 document.addEventListener('DOMContentLoaded', function () {
   var map = document.getElementById('map');
   _reactDom2.default.render(_react2.default.createElement(_root2.default, null), map);
+  window.fetchData = _data_actions2.default;
 });
 
 /***/ }),
@@ -30620,10 +30625,6 @@ var _react2 = _interopRequireDefault(_react);
 var _d2 = __webpack_require__(218);
 
 var d3 = _interopRequireWildcard(_d2);
-
-var _jquery = __webpack_require__(524);
-
-var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -55046,6 +55047,32 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
+
+/***/ }),
+/* 525 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jquery = __webpack_require__(524);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var fetchData = function fetchData() {
+  return _jquery2.default.ajax({
+    url: "docs/data.csv",
+    dataType: "text"
+  });
+};
+
+exports.default = fetchData;
 
 /***/ })
 /******/ ]);

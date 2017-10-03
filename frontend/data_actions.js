@@ -2,7 +2,7 @@ import $ from "jquery";
 
 const fetchData = () => (
   $.ajax({
-    url: "country_data.csv",
+    url: "docs/data.csv",
     dataType: "text"
   })
 );
