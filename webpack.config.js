@@ -3,12 +3,12 @@ var path = require('path');
 module.exports = {
   entry: './frontend/immigration.jsx',
   output: {
-    filename: './bundle.js',
+    filename: 'bundle.js',
   },
   module: {
     loaders: [
       {
-        test: [/\.jsx?$/],
+        test: [/\.jsx?$/,/.json?$/],
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {

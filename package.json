@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch",
-    "server": "http-server"
+    "server": "http-server",
+    "web": "npm run watch & webpack-dev-server --content-base ./ --port 9966"
   },
   "keywords": [],
   "author": "",
@@ -27,5 +28,8 @@
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "webpack": "^3.6.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.9.1"
   }
 }

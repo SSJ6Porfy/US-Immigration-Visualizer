@@ -1,31 +1,37 @@
 import React from "react";
 import * as d3 from "d3";
+import fetchData from "./data_actions";
 
 class Immigration extends React.Component {
   constructor(props) {
     super(props);
     this.countrySpotGenerator = this.countrySpotGenerator.bind(this);
-    this.countryCoordinates = this.countryCoordinates.bind(this);
+    this.builder = this.builder.bind(this);
+  }
+
+  builder() {
+    fetchData().then(res => this.countrySpotGenerator(res));
   }
 
   countrySpotGenerator(arr) {
-    arr.forEach((country) => {
-      let [x, y] = country;
+    let keys = Object.keys(arr).slice(1);
+    keys.forEach((key) => {
+      let str = arr[key]["FIELD21"];
+        let [a, b] = str.split(",");
+        let x = Number(a.match(/\d+/));
+        let y = Number(b.match(/\d+/));
         d3.select("svg")
-          .append("circle")
-          .attr("r", 2)
-          .attr("cx", x)
-          .attr("cy", y)
-          .attr("fill", "red");
+        .append("circle")
+        .attr("r", 2)
+        .attr("cx", x)
+        .attr("cy", y)
+        .attr("fill", "red");
+
+        d3.select("svg") // Mexico to US
+          .append('path')
+          .attr('class', 'flowline')
+          .attr('d', `M${x} ${y} L0 220`);
     });
-  }
-
-  countryCoordinates() {
-    const coordinates = [
-      [0, 220],[30, 190],[-15, 265],[175, 110],[60,273],[47,273],[240,174]
-    ];
-
-    return coordinates;
   }
 
   render() {
@@ -44,30 +50,7 @@ class Immigration extends React.Component {
                   .append("svg")
                   .attr("viewBox", "0 0 500 500");
 
-    this.countrySpotGenerator(this.countryCoordinates());
-
-  // PATHS
-
-    d3.select("svg") // Mexico to US
-      .append('path')
-      .attr('class', 'flowline')
-      .attr('d', 'M-15 265 L0 220');
-
-    d3.select("svg") // Haiti to US
-      .append('path')
-      .attr('class', 'flowline')
-      .attr('d', 'M47 273 L0 220');
-
-    d3.select("svg") //DR to US
-      .append('path')
-      .attr('class', 'flowline')
-      .attr('d', 'M60 273 L0 220');
-
-    d3.select("svg")// Canada to US
-      .append('path')
-      .attr('class', 'flowline')
-      .attr('d', 'M30 190 L0 220');
-
+    this.builder();
 
     return (
       <div>
