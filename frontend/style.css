@@ -19,7 +19,7 @@ html, body {
 
 circle {
   position: absolute;
-  z-index: 1000;
+  z-index: 500;
   stroke-width: 1px;
   stroke-width: 1px;
   stroke: white;
@@ -29,7 +29,8 @@ svg {
   height: 625px;
   width: 1100px;
   position: absolute;
-  z-index: 1000;
+  z-index: 100;
+  fill: none;
 }
 
 .mapboxgl-control-container {
@@ -64,4 +65,22 @@ svg {
   to {
     stroke-dashoffset: 0;
   }
+}
+
+
+text {
+  position: absolute;
+  z-index: 1000;
+  height: 100px;
+  width: 200px;
+  stroke: white;
+}
+
+text:hover {
+  stroke: white;
+}
+
+g {
+  height: 100%;
+  width: 100%;
 }
