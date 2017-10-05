@@ -10,6 +10,7 @@ class Immigration extends React.Component {
     this.builder = this.builder.bind(this);
     this.countryIn = this.countryIn.bind(this);
     this.countryOut = this.countryOut.bind(this);
+    this.byDecadeInfo = this.byDecadeInfo.bind(this);
   }
 
   builder() {
@@ -32,6 +33,26 @@ class Immigration extends React.Component {
     country.style("visibility","hidden");
   }
 
+  byDecadeInfo(arr, country) {
+    let keys = Object.keys(arr).slice(1);
+    let popKeys = Object.keys(arr[country][0]).slice(0,Object.keys(arr[country][0]).length - 1);
+
+    let sum = 0;
+    let decadeStr = "<div class='year-div'><div class='col1'>";
+    popKeys.forEach((popKey, idx) => {
+       decadeStr += (
+         arr["RowTitle"][0][popKey] + ": " + Number(arr[country][0][popKey]).toLocaleString() + "<br>");
+       sum += Number(arr[country][0][popKey]);
+       if ((idx + 1) % 7 === 0) {
+         decadeStr += `</div><div class='col${((idx + 1) / 7) + 1}'>`;
+       }
+    });
+    decadeStr += "</div></div>";
+    decadeStr += `<div class='total'>Total: ${sum.toLocaleString()}</div>`;
+    console.log(decadeStr);
+    return decadeStr;
+  }
+
   countrySpotGenerator(arr) {
 
     let keys = Object.keys(arr).slice(1);
@@ -43,40 +64,47 @@ class Immigration extends React.Component {
 
       let svg = d3.select("svg");
 
+      let circle =  svg.append("circle")
+                        .attr("r", 5)
+                        .attr("cx", x)
+                        .attr("cy", y)
+                        .on("mouseover", () => this.countryIn(forObj))
+                        .on("mouseout", () => this.countryOut(forObj));
+
+      let path = svg.append('path')
+                    .attr('class', 'flowline')
+                    .attr('d', `M${x} ${y} L0 215`);
+
+      if (y < 155) {
+        y += 50;
+      }
+
+      if (x < 205) {
+        x += 400;
+      }
+
+
       let forObj = svg.append("foreignObject")
-                      .attr("width", "200px")
-                      .attr("height", "100px")
-                      .attr("x", x - 200)
-                      .attr("y", y - 120)
+                      .attr("width", "375px")
+                      .attr("height", "210px")
+                      .attr("x", x - 390)
+                      .attr("y", y - 150)
                       .attr("visibility", "hidden");
 
       let containerDiv = forObj.append("xhtml:div")
                                 .attr("id", "containerDiv")
-                                .attr("visibility", "hidden")
-                                .style("border", "1px solid white")
-                                .style("border-radius", "3px");
+                                .attr("visibility", "hidden");
 
-      let countryBody = containerDiv.append("xhtml:body");
+      let countryBody = containerDiv.append("xhtml:body")
+                                    .attr("id", "body-country");
 
-      let countryContent = countryBody.append("xhtml:div")
+      let countryTitle = countryBody.append("xhtml:div")
                                       .attr("id", "country-title")
-                                      .text(() => {return key;})
-                                      .append("xhtml:div")
-                                      .attr("id", "country-body");
+                                      .text(() => {return key;});
 
-          let circle =  svg.append("circle")
-          .attr("r", 5)
-          .attr("cx", x)
-          .attr("cy", y)
-          .attr("fill", "red")
-          .on("mouseover", () => this.countryIn(forObj))
-          .on("mouseout", () => this.countryOut(forObj));
-
-          let path = svg.append('path')
-          .attr('class', 'flowline')
-          .attr('d', `M${x} ${y} L0 215`);
-
-
+      let countryInfo = countryBody.append("xhtml:text")
+                                   .attr("id", "country-body")
+                                   .html(() => this.byDecadeInfo(arr, key));
     });
   }
 
@@ -98,12 +126,11 @@ class Immigration extends React.Component {
 
               d3.select("svg")
                 .append("polygon")
-                .attr("fill", "blue")
                 .attr("points", "-11 228 -8 217 -17 210 -5 210 0 200 5 210 17 210 8 217 11 228 0 220")
-                .attr("stroke", "white")
-                .attr("stroke-width", "2");
+
 
     this.builder();
+
 
     return (
       <div>
