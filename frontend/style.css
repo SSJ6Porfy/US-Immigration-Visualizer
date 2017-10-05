@@ -68,19 +68,15 @@ svg {
 }
 
 
-text {
-  position: absolute;
-  z-index: 1000;
-  height: 100px;
-  width: 200px;
-  stroke: white;
+#containerDiv {
+  height: 97%;
+  width: 97%;
 }
 
-text:hover {
-  stroke: white;
-}
 
-g {
-  height: 100%;
-  width: 100%;
+#country-title {
+  color: white;
+  stroke: white;
+  padding: 3px 7px 3px 7px;
+  background: black;
 }
