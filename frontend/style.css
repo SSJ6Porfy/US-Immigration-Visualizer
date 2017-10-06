@@ -5,6 +5,7 @@ html, body {
   width: 100%;
   background: black;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -14,7 +15,7 @@ html, body {
   width: 1100px;
   min-height: 625px;
   min-width: 1100px;
-  border: 1px solid lightgray;
+  border: 1px solid rgb(181, 255, 238);
 }
 
 circle {
@@ -22,7 +23,8 @@ circle {
   z-index: 500;
   stroke-width: 1px;
   stroke-width: 1px;
-  stroke: white;
+  stroke: lightcyan;
+  fill: cadetblue;
 }
 
 svg {
@@ -39,17 +41,22 @@ svg {
 
 .flowline {
   fill: none;
-  stroke: hsl(60, 100%, 50%);
+  stroke: rgb(181, 255, 238);
   opacity: 1;
   stroke-width: 2;
   stroke-dasharray: 1, 14;
-  animation: flow 1s linear infinite;
-  -webkit-animation: flow 1s linear infinite;
+<<<<<<< HEAD
+  animation: flow 2s linear infinite;
+  -webkit-animation: flow 2s linear infinite;
+=======
+  animation: flow 0.1s linear infinite;
+  -webkit-animation: flow 0.1s linear infinite;
+>>>>>>> bf42fb0bb9cb7724cecc119823f208c579a120e4
 }
 
 @keyframes flow {
   from {
-    stroke-dashoffset: 14;
+    stroke-dashoffset: 60;
   }
 
   to {
@@ -59,7 +66,7 @@ svg {
 
 @-webkit-keyframes flow {
   from {
-    stroke-dashoffset: 14;
+    stroke-dashoffset: 60;
   }
 
   to {
@@ -71,12 +78,69 @@ svg {
 #containerDiv {
   height: 97%;
   width: 97%;
+  border: 1px solid rgb(181, 255, 238);
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 
 #country-title {
-  color: white;
-  stroke: white;
-  padding: 3px 7px 3px 7px;
+  color: rgb(181, 255, 238);
+  padding: 3px 0px 3px 0px;
   background: black;
+  height: 20px;
+  width: 95%;
+  text-align: center;
+  border-bottom: 1px solid rgb(181, 255, 238);
+}
+
+#country-body {
+  width: 95%;
+  color: rgb(181, 255, 238);
+  font-size: 10px;
+}
+
+#body-country {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.year-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.col2 {
+  margin-left: 10px;
+}
+
+.col3 {
+  margin-left: 10px;
+}
+
+.total {
+  margin-top: 3px;
+  border-top: 1px solid rgb(181, 255, 238);
+  font-size: 16px;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.banner {
+  font-size: 50px;
+  font-family: "Rajdhani", sans-serif;
+  color: rgb(181, 255, 238);
+  font-weight: lighter;
+  letter-spacing: 5px;
+}
+
+polygon {
+  fill: linear-gradient(red, yellow);
+  stroke: white;
+  stroke-width: 1px;
 }
