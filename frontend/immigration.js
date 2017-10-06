@@ -44,6 +44,8 @@ import mapboxgl from "mapbox-gl";
     country.style("visibility","hidden");
   };
 
+  // Receive Obj from CSV and <div></div> in string format that is then passed
+  // to .html() metho
   const byDecadeInfo = (arr, country, path) => {
     let keys = Object.keys(arr).slice(1);
     let popKeys = Object.keys(arr[country][0]).slice(0,Object.keys(arr[country][0]).length - 1);
@@ -65,6 +67,8 @@ import mapboxgl from "mapbox-gl";
     return decadeStr;
   };
 
+
+  // generates spots and paths
   const countrySpotGenerator = (arr) => {
 
     let keys = Object.keys(arr).slice(1);
