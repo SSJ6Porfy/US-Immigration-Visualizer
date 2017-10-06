@@ -41,14 +41,8 @@ maps.
 
 * Webpack for bundling the scripts
 
-## MVP
+## Todos
 
-
-Coordinates between countries will render a series of dots representing
-a rate of 25,000 immigrants per dot flow on a path towards the US.  
-The more immigrants, the higher the speed of
-the dots. Countries with a larger number will
-have a noticeably higher rate.
-
-Users will have an interactive experience by using the mouse to scroll
-which decade the user wants to see with rate changing depending on the data.
+* Add legend for population size
+* interactive scroll feature to select a specific decade and see just that decade's data
+* Add more color to differentiate population movement. 
