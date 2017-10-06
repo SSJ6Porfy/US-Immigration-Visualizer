@@ -3,8 +3,10 @@ import fetchData from "./data_actions";
 import mapboxgl from "mapbox-gl";
 
 
+  // Mapbox API Request
   mapboxgl.accessToken = 'pk.eyJ1Ijoic3NqNnBvcmZ5IiwiYSI6ImNqODg2N3o3ZjFoM20zM29hMmV1dmtvaTgifQ.qsmrk1kkn8DjFAILMgRMIg';
 
+  // Set map to the map div on the DOM
   let map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/ssj6porfy/cj886di5648oh2sod4z2ncb9s',
@@ -15,19 +17,22 @@ import mapboxgl from "mapbox-gl";
     "zoom": 1.1
   });
 
+  // SVG overlay
   let mapdiv = d3.select("#map")
                 .append("svg")
                 .attr("viewBox", "0 0 500 500");
 
+  // Star at center of the USA
   let mainSvg = d3.select("svg")
                   .append("polygon")
                   .attr("points", "-11 228 -8 217 -17 210 -5 210 0 200 5 210 17 210 8 217 11 228 0 220");
 
-
+  // Makes reqeust to JSON file for country data
   const builder = () => {
     fetchData().then(res => countrySpotGenerator(res));
   };
 
+  // Makes Popup div appear
   const countryIn = (country) => {
     d3.selection.prototype.moveToFront = function() {
       return this.each(function(){
@@ -39,13 +44,13 @@ import mapboxgl from "mapbox-gl";
     country.style("visibility","visible");
   };
 
-
+  // Makes Popup disappear
   const countryOut = (country) => {
     country.style("visibility","hidden");
   };
 
   // Receive Obj from CSV and <div></div> in string format that is then passed
-  // to .html() metho
+  // to .html() method and styled with tradition class
   const byDecadeInfo = (arr, country, path) => {
     let keys = Object.keys(arr).slice(1);
     let popKeys = Object.keys(arr[country][0]).slice(0,Object.keys(arr[country][0]).length - 1);
