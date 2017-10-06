@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch",
-    "server": "http-server"
+    "server": "http-server",
+    "web": "webpack --watch & webpack-dev-server --content-base ./ --port 9966"
   },
   "keywords": [],
   "author": "",

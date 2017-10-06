@@ -35,6 +35,13 @@ svg {
   fill: none;
 }
 
+.side-div {
+  fill: red;
+  height: 200px;
+  width: 200px;
+  stroke: red;
+}
+
 .mapboxgl-control-container {
   display: none;
 }
@@ -45,23 +52,11 @@ svg {
   opacity: 1;
   stroke-width: 2;
   stroke-dasharray: 1, 14;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  animation: flow 2s linear infinite;
-  -webkit-animation: flow 2s linear infinite;
-=======
-  animation: flow 0.1s linear infinite;
-  -webkit-animation: flow 0.1s linear infinite;
->>>>>>> bf42fb0bb9cb7724cecc119823f208c579a120e4
-=======
-  animation: flow 0.1s linear infinite;
-  -webkit-animation: flow 0.1s linear infinite;
->>>>>>> bf42fb0bb9cb7724cecc119823f208c579a120e4
 }
 
 @keyframes flow {
   from {
-    stroke-dashoffset: 60;
+    stroke-dashoffset: 14;
   }
 
   to {
@@ -71,7 +66,7 @@ svg {
 
 @-webkit-keyframes flow {
   from {
-    stroke-dashoffset: 60;
+    stroke-dashoffset: 14;
   }
 
   to {
@@ -147,5 +142,5 @@ svg {
 polygon {
   fill: linear-gradient(red, yellow);
   stroke: white;
-  stroke-width: 1px;
+  stroke-width: 2px;
 }

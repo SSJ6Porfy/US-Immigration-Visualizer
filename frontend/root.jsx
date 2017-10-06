@@ -1,7 +1,6 @@
 import React from "react";
 import * as d3 from "d3";
 import fetchData from "./data_actions";
-import { front } from "svg.js";
 
 class Immigration extends React.Component {
   constructor(props) {
@@ -33,7 +32,7 @@ class Immigration extends React.Component {
     country.style("visibility","hidden");
   }
 
-  byDecadeInfo(arr, country) {
+  byDecadeInfo(arr, country, path) {
     let keys = Object.keys(arr).slice(1);
     let popKeys = Object.keys(arr[country][0]).slice(0,Object.keys(arr[country][0]).length - 1);
 
@@ -49,7 +48,9 @@ class Immigration extends React.Component {
     });
     decadeStr += "</div></div>";
     decadeStr += `<div class='total'>Total: ${sum.toLocaleString()}</div>`;
-    console.log(decadeStr);
+
+    path.style("animation", `flow ${400000 / sum}s linear infinite`);
+    path.style("-webkit-animation", `flow ${400000 / sum}s linear infinite`);
     return decadeStr;
   }
 
@@ -104,7 +105,7 @@ class Immigration extends React.Component {
 
       let countryInfo = countryBody.append("xhtml:text")
                                    .attr("id", "country-body")
-                                   .html(() => this.byDecadeInfo(arr, key));
+                                   .html(() => this.byDecadeInfo(arr, key, path));
     });
   }
 
@@ -126,7 +127,7 @@ class Immigration extends React.Component {
 
               d3.select("svg")
                 .append("polygon")
-                .attr("points", "-11 228 -8 217 -17 210 -5 210 0 200 5 210 17 210 8 217 11 228 0 220")
+                .attr("points", "-11 228 -8 217 -17 210 -5 210 0 200 5 210 17 210 8 217 11 228 0 220");
 
 
     this.builder();
