@@ -6,7 +6,7 @@ The goal of the US Immigration data visualizer is to show the flow of
 immigrants to the United States by decade since 1820. The data used was
 sourced from the US census.
 
-The project must be completed in 4 days.
+The project was completed in 4 days.
 
 ### Technologies
 * d3.js - A javascript library for manipulating document with data.
