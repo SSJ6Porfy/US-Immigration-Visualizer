@@ -24,6 +24,8 @@ immigrated to the United States since 1820 by decade and the total.
 
 * mapbox API - A location data platform designed specifically to build rich
 maps.
+![Wireframes](https://github.com/SSJ6Porfy/US-Immigration-Visualizer/blob/master/docs/600x400.png)
+
   * Used Mapbox API which is built on Mapbox's OpenMapStreet technologies and
   allow for a wider degree of customization. I personally chose and style the map background.  
   * The Mapbox API is fantastic and super simple to use.  Simply create an account, acquire a key and style your map in Mapbox's Mapbox Studio web app. Then publish a link that you place in the head of index.html.
@@ -45,4 +47,4 @@ maps.
 
 * Add legend for population size
 * interactive scroll feature to select a specific decade and see just that decade's data
-* Add more color to differentiate population movement. 
+* Add more color to differentiate population movement.
