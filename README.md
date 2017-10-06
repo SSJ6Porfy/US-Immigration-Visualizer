@@ -24,6 +24,7 @@ immigrated to the United States since 1820 by decade and the total.
 
 * mapbox API - A location data platform designed specifically to build rich
 maps.
+
 ![Wireframes](https://github.com/SSJ6Porfy/US-Immigration-Visualizer/blob/master/docs/600x400.png)
 
   * Used Mapbox API which is built on Mapbox's OpenMapStreet technologies and
