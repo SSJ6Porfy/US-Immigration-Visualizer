@@ -46,8 +46,13 @@ svg {
   stroke-width: 2;
   stroke-dasharray: 1, 14;
 <<<<<<< HEAD
+<<<<<<< HEAD
   animation: flow 2s linear infinite;
   -webkit-animation: flow 2s linear infinite;
+=======
+  animation: flow 0.1s linear infinite;
+  -webkit-animation: flow 0.1s linear infinite;
+>>>>>>> bf42fb0bb9cb7724cecc119823f208c579a120e4
 =======
   animation: flow 0.1s linear infinite;
   -webkit-animation: flow 0.1s linear infinite;
