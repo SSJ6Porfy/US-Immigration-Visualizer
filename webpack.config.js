@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  entry: './frontend/immigration.jsx',
+  entry: './frontend/immigration.js',
   output: {
     filename: 'bundle.js',
   },

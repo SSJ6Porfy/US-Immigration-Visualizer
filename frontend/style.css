@@ -137,10 +137,15 @@ svg {
   color: rgb(181, 255, 238);
   font-weight: lighter;
   letter-spacing: 5px;
+  text-align: center;
 }
 
 polygon {
   fill: linear-gradient(red, yellow);
   stroke: white;
   stroke-width: 2px;
+}
+
+.mapboxgl-missing-css {
+  display: none;
 }
